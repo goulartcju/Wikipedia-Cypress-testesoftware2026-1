@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.941" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-07-23T23:12:14" tests="0" file="cypress\e2e\login.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Login" timestamp="2025-07-23T23:12:14" tests="2" time="4.940" failures="0">
+    <testcase name="Login Login válido" time="1.991" classname="Login válido">
+    </testcase>
+    <testcase name="Login Login inválido" time="0.943" classname="Login inválido">
+    </testcase>
+  </testsuite>
+</testsuites>

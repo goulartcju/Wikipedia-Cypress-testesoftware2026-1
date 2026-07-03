@@ -1,0 +1,15 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "testo": "cypress open",
+    "testr": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.0",
+    "cypress-mochawesome-reporter": "^4.0.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "mocha-junit-reporter": "^2.2.1"
+  }
+}
