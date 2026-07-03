@@ -115,4 +115,120 @@ it('Pesquisar novamente após uma pesquisa sem resultados', () => {
 
 })
 
+it('Abrir uma nova página após uma pesquisa sem resultados', () => {
+
+  const pesquisa2 = 'Ariana Grande'
+
+  cy.visit('https://www.wikipedia.org/')
+
+  cy.get('#searchInput').type('djfn6d5f')
+  cy.get('.pure-button').click()
+
+  cy.origin(
+    'https://pt.wikipedia.org',
+    { args: { pesquisa2 } },
+    ({ pesquisa2 }) => {
+
+      cy.get('.mw-search-nonefound')
+        .should('contain', 'A pesquisa não produziu resultados.')
+
+      cy.get('#ooui-php-1')
+        .clear()
+        .type(pesquisa2)
+
+      cy.get('.oo-ui-buttonElement-button')
+        .first()
+        .click()
+
+      cy.get('.mw-search-result-heading a')
+        .contains('Ariana Grande')
+        .click()
+
+      cy.url().should('include', 'Ariana_Grande')
+
+    }
+  )
+
+})
+
+it('Visualizar o histórico do artigo', () => {
+
+  const pesquisa2 = 'Ariana Grande'
+
+  cy.visit('https://www.wikipedia.org/')
+
+  cy.get('#searchInput').type('djfn6d5f')
+  cy.get('.pure-button').click()
+
+  cy.origin(
+    'https://pt.wikipedia.org',
+    { args: { pesquisa2 } },
+    ({ pesquisa2 }) => {
+
+      cy.get('.mw-search-nonefound')
+        .should('contain', 'A pesquisa não produziu resultados.')
+
+      cy.get('#ooui-php-1')
+        .clear()
+        .type(pesquisa2)
+
+      cy.get('.oo-ui-buttonElement-button')
+        .first()
+        .click()
+
+      cy.get('.mw-search-result-heading a')
+        .contains('Ariana Grande')
+        .click()
+
+      cy.url().should('include', 'Ariana_Grande')
+
+      cy.get('#ca-history a').click()
+
+      cy.url().should('include', 'action=history')
+
+    }
+  )
+
+})
+
+it('Abrir o menu sanduiche do Site', () => {
+
+  const pesquisa2 = 'Ariana Grande'
+
+  cy.visit('https://www.wikipedia.org/')
+
+  cy.get('#searchInput').type('djfn6d5f')
+  cy.get('.pure-button').click()
+
+  cy.origin(
+    'https://pt.wikipedia.org',
+    { args: { pesquisa2 } },
+    ({ pesquisa2 }) => {
+
+      cy.get('.mw-search-nonefound')
+        .should('contain', 'A pesquisa não produziu resultados.')
+
+      cy.get('#ooui-php-1')
+        .clear()
+        .type(pesquisa2)
+
+      cy.get('.oo-ui-buttonElement-button')
+        .first()
+        .click()
+
+      cy.get('.mw-search-result-heading a')
+        .contains('Ariana Grande')
+        .click()
+
+      cy.url().should('include', 'Ariana_Grande')
+
+      cy.get('#vector-main-menu-dropdown-checkbox')
+      .click()
+
+
+    }
+  )
+
+})
+
 })
